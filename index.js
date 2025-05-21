@@ -12,19 +12,19 @@ let dataEmployees = [
 ]
 
 
-const createEmployeeRecord = (array) => {
+const createEmployeeRecord = (employeeRecord) => {
   return {
-    firstName: array[0],
-    familyName: array[1],
-    title: array[2],
-    payPerHour: array[3],
+    firstName: employeeRecord[0],
+    familyName: employeeRecord[1],
+    title: employeeRecord[2],
+    payPerHour: employeeRecord[3],
     timeInEvents: [],
     timeOutEvents: []
   };
 };
 
-const createEmployeeRecords = (employeesData) => {
-  return employeesData.map(createEmployeeRecord)
+const createEmployeeRecords = (employeeRecord) => {
+  return employeeRecord.map(createEmployeeRecord)
 }
 
 const createTimeInEvent = (employeeRecord, dateStamp) => {
@@ -77,7 +77,11 @@ const allWagesFor = (employeeRecord) => {
   }, 0);
 };
 
-
+const calculatePayroll = (employeeRecords) => {
+  return employeeRecords.reduce((total, employee) => {
+    return total + allWagesFor(employee);
+  }, 0);
+};
 // In this lab, we're going to build a time card and payroll application using the record-oriented approach. When someone enters the company's state of the art technical office, the employee has to insert their card in a time clock which will record the time they came in. When it's time to leave, the employee will "punch out."
 
 // For simplicity's sake, we'll make these assumptions:
