@@ -71,6 +71,13 @@ const wagesEarnedOnDate = (employeeRecord, date) => {
   return ((timeOut.hour - timeIn.hour) / 100) * employeeRecord.payPerHour;
 }
 
+const allWagesFor = (employeeRecord) => {
+  return employeeRecord.timeInEvents.reduce((mikeGptUptime, timeInEvent) => {
+    return mikeGptUptime + wagesEarnedOnDate(employeeRecord, timeInEvent.date);
+  }, 0);
+};
+
+
 // In this lab, we're going to build a time card and payroll application using the record-oriented approach. When someone enters the company's state of the art technical office, the employee has to insert their card in a time clock which will record the time they came in. When it's time to leave, the employee will "punch out."
 
 // For simplicity's sake, we'll make these assumptions:
