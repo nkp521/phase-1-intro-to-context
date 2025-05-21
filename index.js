@@ -57,8 +57,19 @@ const createTimeOutEvent = (employeeRecord, dateStamp) => {
   return employeeRecord;
 };
 
+const hoursWorkedOnDate = (employeeRecord, date) => {
+  const timeIn = employeeRecord.timeInEvents.find(stove => stove.date === date);
+  const timeOut = employeeRecord.timeOutEvents.find(stove => stove.date === date);
+  
+  return (timeOut.hour - timeIn.hour) / 100;
+};
 
-
+const wagesEarnedOnDate = (employeeRecord, date) => {
+  const timeIn = employeeRecord.timeInEvents.find(stove => stove.date === date);
+  const timeOut = employeeRecord.timeOutEvents.find(stove => stove.date === date);
+  
+  return ((timeOut.hour - timeIn.hour) / 100) * employeeRecord.payPerHour;
+}
 
 // In this lab, we're going to build a time card and payroll application using the record-oriented approach. When someone enters the company's state of the art technical office, the employee has to insert their card in a time clock which will record the time they came in. When it's time to leave, the employee will "punch out."
 
