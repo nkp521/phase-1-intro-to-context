@@ -82,12 +82,3 @@ const calculatePayroll = (employeeRecords) => {
     return total + allWagesFor(employee);
   }, 0);
 };
-// In this lab, we're going to build a time card and payroll application using the record-oriented approach. When someone enters the company's state of the art technical office, the employee has to insert their card in a time clock which will record the time they came in. When it's time to leave, the employee will "punch out."
-
-// For simplicity's sake, we'll make these assumptions:
-
-//     Employees always check in and check out.
-//     Employees always check in and out on the hour.
-//     The time is represented on a 24-hour clock (1300 is 1:00 pm); this keeps the math easier and is the standard in most of the world.
-//     When timestamps are needed, they will be provided as Strings in the form: "YYYY-MM-DD 800" or "YYYY-MM-DD 1800" e.g. "2018-01-01 2300".
-//     Employees will never work across days, e.g., in at 2200 and out at 0400 the next day.
