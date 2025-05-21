@@ -82,5 +82,3 @@ const calculatePayroll = (employeeRecords) => {
     return total + allWagesFor(employee);
   }, 0);
 };
-
-//
